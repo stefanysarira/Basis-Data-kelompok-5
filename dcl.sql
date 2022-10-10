@@ -1,19 +1,15 @@
 
 #Dcl
 
-# Buat user baru dan set passwordnya
+# Membuat user baru yaitu dosen dan mahasiswa, lalu set passwordnya
 CREATE USER 'DosenTeknik'@'localhost' IDENTIFIED BY 'teknikBersatu';
+CREATE USER 'Mahasiswa'@'localhost' IDENTIFIED BY 'Mahasiswa_';
 
-# Beri hak akses ke user 
-GRANT CREATE, DROP, SELECT, INSERT, DELETE, UPDATE 
-ON kelompok5
-TO 'DosenTeknik'@'localhost';
+# Memberi semua hak akses ke user
+GRANT ALL PRIVILEGES ON *.*  to 'DosenTeknik'@'localhost';
+GRANT ALL PRIVILEGES On *.*  to 'Mahasiswa'@'localhost';
 
-#beri semua hak  akses ke user
-grant all privileges on *.*  to 'DosenTeknik'@'localhost';
-
-
-# Beri akses tertentu (misal akses SELECT) kepada semua user
+# Memberi akses tertentu (contohnya akses SELECT) kepada semua user
 GRANT SELECT 
 ON kelompok5
 TO '*'@'localhost';
@@ -21,12 +17,12 @@ TO '*'@'localhost';
 # Cek status hak akses user
 SHOW GRANTS FOR 'DosenTeknik'@'localhost';
 
-# Hapus hak akses user
+# Menghapus hak akses user
 REVOKE CREATE, DROP 
 ON kelompok5
 TO 'DosenTeknik'@'localhost';
 
-# Hapus akses tertentu (misal akses DROP) kepada semua user
+# Menghapus akses tertentu (contohnya akses DROP) kepada semua user
 REVOKE DROP  
 ON kelompok5
 TO '*'@'localhost';
